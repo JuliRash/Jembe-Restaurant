@@ -21,8 +21,9 @@ A step by step series of examples that tell you have to get a development env ru
 
 First install python and virtualenv.
 
-```
 * [python](https://www.python.org/downloads/) - python programming language
+
+```
 pip install virtualenv
 
 ```
