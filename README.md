@@ -10,10 +10,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 You're going to need the tools below to run on your machine
 
-```
-python 
-virtualenv
-```
+
+* [python](https://www.python.org) -python
+* [virtualenv](http://docs.python-guide.org/en/latest/dev/virtualenvs/) - virtualenv
+
 
 ### Installing
 
