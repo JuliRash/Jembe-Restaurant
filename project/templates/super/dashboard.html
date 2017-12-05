@@ -1,0 +1,48 @@
+
+{% extends "super/base.html" %}
+{% load staticfiles %}
+{% block title %} {{ request.user.first_name }}-dashboard {% endblock %}
+{% block content %}
+<div class="wraper container-fluid">
+
+                    {% include "super/messages.html" %}
+  
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="widget-panel widget-style-2 bg-pink">
+                            <i class="ion-eye"></i> 
+                            <h2 class="m-0 counter">{{ reservations.count }}</h2>
+                            <div>Total Reservations</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="widget-panel widget-style-2 bg-purple">
+                            <i class="ion-ios7-locked "></i> 
+                            <h2 class="m-0 counter">{{ pending.count }}</h2>
+                            <div>Pending Reservations</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="widget-panel widget-style-2 bg-info">
+                            <i class="ion-ios7-paw"></i> 
+                            <h2 class="m-0 counter">{{ confirmed.count }}</h2>
+                            <div>Confirmed Reservations</div>
+                        </div>
+                    </div>
+                      <div class="col-lg-3 col-sm-6">
+                        <div class="widget-panel widget-style-2 bg-info">
+                            <i class="ion-ios7-people "></i> 
+                            <h2 class="m-0 counter">{{ users.count }}</h2>
+                            <div>Total Staff</div>
+                        </div>
+                    </div>
+                   
+                </div> <!-- end row -->
+                
+
+
+
+            </div>
+            <!-- Page Content Ends -->
+            <!-- ================== -->
+{% endblock %}

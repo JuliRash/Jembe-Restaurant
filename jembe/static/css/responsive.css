@@ -1,0 +1,796 @@
+/*------------------------------
+    PRELOADER
+-------------------------------*/
+
+.preeloader {
+    background: rgba(255, 255, 255, 1) none repeat scroll 0 0;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    z-index: 999999;
+}
+
+.preloader-spinner {
+    -webkit-animation: 1.5s linear 0s normal none infinite running loader;
+    animation: 1.5s linear 0s normal none infinite running loader;
+    width: 60px;
+    height: 60px;
+    font-size: 35px;
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    margin-left: -30px;
+    top: 50%;
+    margin-top: -30px;
+    padding-top: 12px;
+    z-index: 99;
+    background: #1a1a1a;
+    color: #d0963e;
+}
+
+@-webkit-keyframes loader {
+    0% {
+        box-shadow: 0 0 0 0px rgba(208, 150, 62, 0)
+    }
+    25% {
+        box-shadow: 0 0 0 0px rgba(208, 150, 62, 0.5), 0 0 0 10px rgba(208, 150, 62, 0.4), ;
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(208, 150, 62, 0.5), 0 0 0 20px rgba(208, 150, 62, 0.3);
+    }
+    75% {
+        box-shadow: 0 0 0 10px rgba(208, 150, 62, 0.5), 0 0 0 10px rgba(208, 150, 62, 0.2);
+    }
+    100% {
+        box-shadow: 0 0 0 0px rgba(208, 150, 62, 0.4);
+    }
+}
+
+@keyframes loader {
+    0% {
+        box-shadow: 0 0 0 0px rgba(208, 150, 62, 0)
+    }
+    25% {
+        box-shadow: 0 0 0 0px rgba(208, 150, 62, 0.5), 0 0 0 10px rgba(208, 150, 62, 0.4), ;
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(208, 150, 62, 0.5), 0 0 0 20px rgba(208, 150, 62, 0.3);
+    }
+    75% {
+        box-shadow: 0 0 0 10px rgba(208, 150, 62, 0.5), 0 0 0 10px rgba(208, 150, 62, 0.2);
+    }
+    100% {
+        box-shadow: 0 0 0 0px rgba(208, 150, 62, 0.4);
+    }
+}
+
+
+/*----------------------------------
+    MEDIUM LAYOUT: 1280px
+-----------------------------------*/
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .navbar-header {
+        margin-top: 0px;
+    }
+    .navbar-header img {
+        -webkit-transition: 0.3s;
+        transition: 0.3s;
+    }
+    .is-sticky .navbar-header img {
+        width: 80%;
+        margin-top: -5px;
+    }
+    ul#nav li a {
+        padding: 30px 15px;
+        letter-spacing: 0;
+    }
+    .is-sticky ul#nav li a {
+        padding: 20px 15px;
+    }
+    .search-form-area {
+        padding: 25px 15px;
+    }
+    .is-sticky .search-form-area {
+        padding: 15px;
+    }
+    .slider-area h1 {
+        font-size: 50px;
+    }
+    .slider-area h2 {
+        font-size: 70px;
+    }
+    .about-area .area-title {
+        margin-bottom: 30px;
+    }
+    .about-area .area-title h2 {
+        font-size: 60px;
+    }
+    .about-area .area-title h2 span {
+        font-size: 40px;
+    }
+    .single-event {
+        padding: 50px 0;
+    }
+    .event-content {
+        padding-left: 180px;
+    }
+    /*--------------------------
+        HOME TWO
+    ----------------------------*/
+    .style-two .promotions-details h3 {
+        font-size: 40px;
+    }
+    .style-two .promotions-details h4 {
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+    /*----------------------------
+        MENU PAGE
+    -----------------------------*/
+    .style-three .promotions-img {
+        max-height: 380px;
+        width: 80%;
+    }
+    .style-three .promotions-details {
+        height: 350px;
+        margin-top: -175px;
+        max-height: 350px;
+        width: 40%;
+    }
+}
+
+
+/*----------------------------------
+    TABLET LAYOUT: 768px
+------------------------------------*/
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .section-padding {
+        padding: 50px 0;
+    }
+    .pogoSlider-slide {
+        background-position: 100% 100% !important;
+    }
+    .navbar-collapse.collapse {
+        display: none !important;
+    }
+    .navbar-collapse.collapse.in {
+        display: block !important;
+    }
+    .navbar-header .collapse,
+    .navbar-toggle {
+        border: 2px solid #fff;
+        border-radius: 0;
+        display: block !important;
+    }
+    .is-sticky .navbar-header .collapse,
+    .is-sticky .navbar-toggle {
+        border: 2px solid #1a1a1a;
+    }
+    .is-sticky .navbar-toggle .icon-bar {
+        background: #1a1a1a none repeat scroll 0 0;
+    }
+    .navbar-header {
+        float: none;
+    }
+    .navbar-header {
+        border-bottom: 1px solid #111;
+        margin: 0;
+        padding: 15px 0;
+    }
+    ul#nav {
+        width: 100%;
+        max-height: 200px;
+        overflow: scroll;
+        overflow-x: hidden;
+    }
+    ul#nav li {
+        float: none;
+    }
+    .navbar-toggle .icon-bar {
+        background: #fff none repeat scroll 0 0;
+    }
+    .search-form-area {
+        display: none;
+    }
+    ul#nav li ul {
+        display: none;
+        opacity: 1;
+        top: inherit;
+        position: static;
+        -webkit-transition: inherit;
+        transition: inherit;
+        -webkit-transform: inherit;
+        transform: inherit;
+        width: 100%;
+    }
+    ul#nav li a {
+        color: #fff;
+    }
+    ul#nav ul li a {
+        padding-left: 30px !important;
+    }
+    .is-sticky ul#nav ul li a {
+        color: #fff;
+    }
+    .navbar-brand {
+        display: none;
+    }
+    .navbar-brand.white {
+        display: block;
+    }
+    ul#nav li a {
+        color: #fff;
+    }
+    ul#nav li.active > a,
+    ul#nav li:hover > a {
+        color: #d0963e;
+    }
+    ul#nav li.active a::before {
+        display: none;
+    }
+    /*------------------*/
+    .mainmenu-area {
+        background: #212324 none repeat scroll 0 0;
+    }
+    .navbar-brand {
+        margin-top: -10px;
+        padding: 8px;
+    }
+    ul#nav li a {
+        padding: 10px;
+    }
+    .is-sticky ul#nav li a {
+        padding: 10px;
+    }
+    .slider-area h1 {
+        font-size: 40px;
+    }
+    .about-area .area-title {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    .about-img img {
+        width: 100%;
+    }
+    a.read-more {
+        margin-bottom: 30px;
+    }
+    .promotions-img img {
+        width: 80%;
+    }
+    .area-title {
+        margin-bottom: 40px;
+    }
+    .food-menu-img img {
+        width: 100%;
+    }
+    .promotions-area .row > div:last-child .single-promotions .read-more {
+        margin-bottom: 0;
+    }
+    .event-content {
+        padding-left: 180px;
+    }
+    .blog-post-img img {
+        width: 100%;
+    }
+    .single-post {
+        margin-bottom: 30px;
+    }
+    .blog-area .row > div:last-child .single-post {
+        margin-bottom: 0;
+    }
+    .footer-menu {
+        padding-bottom: 0;
+        text-align: center;
+    }
+    .footer-copyright {
+        padding-top: 10px;
+        text-align: center;
+    }
+    /*--------------------------
+        HOME TWO
+    ---------------------------*/
+    .about-video {
+        margin: 0 auto;
+        width: 50%;
+    }
+    .style-two .promotions-img img {
+        width: 100%;
+    }
+    .style-two .single-promotions {
+        margin-bottom: 30px;
+    }
+    /*----------------------------
+        HOME THREE
+    ------------------------------*/
+    .table-booking-form {
+        padding-bottom: 10px;
+        margin-top: -130px;
+        margin-bottom: 40px;
+    }
+    .table-booking-form input,
+    .table-booking-form select {
+        margin-bottom: 20px;
+    }
+    /*-----------------------------
+        ABOUT PAGE
+    ------------------------------*/
+    .testmonial-area {
+        font-size: 20px;
+    }
+    .single-counter {
+        margin-bottom: 30px;
+    }
+    .counter-area.section-padding {
+        padding-bottom: 20px;
+    }
+    /*-----------------------------
+        BLOG PAGE
+    ------------------------------*/
+    .single-post-pagination .page-pagination {
+        margin-bottom: 40px;
+    }
+    .page-pagination.margin-top {
+        margin-top: 40px;
+    }
+    .main-reservaton-form {
+        margin-bottom: 50px;
+    }
+    .reservation-call-to-action {
+        margin-bottom: 40px;
+    }
+    /*----------------------------
+        MENU PAGE
+    -----------------------------*/
+    .style-three .promotions-img {
+        height: auto;
+        max-height: 450px;
+        width: 100%;
+    }
+    .style-three .promotions-details {
+        padding: 30px;
+        width: 60%;
+    }
+}
+
+
+/*----------------------------------
+    MOBILE LAYOUT: 320px
+-----------------------------------*/
+
+@media only screen and (max-width: 767px) {
+    .section-padding {
+        padding: 50px 0;
+    }
+    .area-title h2 {
+        font-size: 30px;
+    }
+    .area-title h2::before {
+        left: -50px;
+        width: 50px;
+    }
+    .area-title h2::after {
+        right: -50px;
+        width: 50px;
+    }
+    .pogoSlider--dirCenterHorizontal .pogoSlider-dir-btn {
+        display: none;
+    }
+    .navbar-header {
+        border-bottom: 1px solid #111;
+        margin: 0;
+        padding: 15px 0;
+    }
+    .navbar-brand {
+        margin-top: -10px;
+        padding: 8px;
+    }
+    .search-form-area {
+        display: none;
+    }
+    ul#nav {
+        width: 100%;
+        max-height: 200px;
+        overflow: scroll;
+        overflow-x: hidden;
+    }
+    ul#nav li {
+        float: none;
+    }
+    .mainmenu-area {
+        background: #212324 none repeat scroll 0 0;
+    }
+    ul#nav li a {
+        padding: 10px;
+    }
+    .is-sticky ul#nav li a {
+        padding: 10px;
+    }
+    .search-form-area {
+        display: none;
+    }
+    ul#nav li ul {
+        display: none;
+        opacity: 1;
+        top: inherit;
+        position: static;
+        -webkit-transition: inherit;
+        transition: inherit;
+        -webkit-transform: inherit;
+        transform: inherit;
+        width: 100%;
+    }
+    ul#nav ul li a {
+        padding-left: 30px !important;
+    }
+    .navbar-brand {
+        display: none;
+    }
+    .navbar-brand.white {
+        display: block;
+    }
+    ul#nav li a {
+        color: #fff;
+    }
+    ul#nav li.active > a,
+    ul#nav li:hover > a {
+        color: #d0963e;
+    }
+    ul#nav li.active a::before {
+        display: none;
+    }
+    /*------------------------*/
+    .about-img img {
+        width: 100%;
+    }
+    .call-to-action {
+        display: none;
+    }
+    .top-social-bookmark ul li a {
+        width: 33px;
+    }
+    .top-social-bookmark {
+        float: left;
+    }
+    .book-table-popup a {
+        padding: 15px 10px;
+    }
+    .pogoSlider-slide {
+        padding-top: 20%;
+    }
+    .slider-area h3 {
+        letter-spacing: 2px;
+    }
+    .slider-area h1 {
+        font-size: 32px;
+    }
+    .slider-area h2 {
+        font-size: 55px;
+    }
+    .about-area .area-title h2 {
+        font-size: 55px;
+    }
+    .about-area .area-title h2 span {
+        font-size: 40px;
+    }
+    .about-area .area-title {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    .about-img img {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .about-area .row .row > div:last-child .about-img img {
+        margin-bottom: 0;
+    }
+    .area-title {
+        margin-bottom: 30px;
+    }
+    .area-title h2 {
+        font-size: 50px;
+    }
+    .area-title h3 {
+        font-size: 25px;
+        letter-spacing: 1px;
+    }
+    a.read-more {
+        margin-bottom: 30px;
+    }
+    .promotions-img img {
+        width: 100%;
+    }
+    .promotions-details h4 {
+        font-size: 40px;
+    }
+    .food-menu-list-menu {
+        margin-bottom: 30px;
+    }
+    .food-menu-list-menu ul li {
+        margin: 5px;
+    }
+    .food-menu-img img {
+        width: 100%;
+    }
+    .promotions-area .row > div:last-child .single-promotions .read-more {
+        margin-bottom: 0;
+    }
+    .event-img {
+        float: none;
+        margin: 0 0 20px;
+    }
+    .event-img img {
+        width: 100%;
+    }
+    .single-event {
+        position: relative;
+    }
+    .event-content {
+        padding: 0;
+        position: inherit;
+    }
+    .event-date {
+        background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+        color: #fff;
+        height: 100px;
+        padding-top: 18px;
+        position: absolute;
+        top: -120px;
+        width: 100px;
+    }
+    .event-date span {
+        font-size: 30px;
+        padding-bottom: 0;
+    }
+    .single-event {
+        padding: 40px 0;
+    }
+    .event-details > h3 {
+        font-size: 20px;
+    }
+    .blog-post-img img {
+        width: 100%;
+    }
+    a.post-meta-button {
+        margin-bottom: 15px;
+    }
+    .post-details > h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        padding-bottom: 15px;
+    }
+    .single-post {
+        margin-bottom: 30px;
+    }
+    .blog-area .row > div:last-child .single-post {
+        margin-bottom: 0;
+    }
+    .instagram-area .area-title h4 {
+        font-size: 20px;
+        text-transform: capitalize;
+    }
+    ul.instagram-feed li {
+        margin-bottom: 10px;
+        width: 33%;
+    }
+    .footer-menu {
+        padding-bottom: 0;
+        text-align: center;
+    }
+    .footer-copyright {
+        padding-top: 10px;
+        text-align: center;
+    }
+    /*--------------------------
+        HOME TWO
+    ---------------------------*/
+    .about-video {
+        display: none;
+    }
+    .style-two .promotions-img img {
+        width: 100%;
+    }
+    .style-two .single-promotions {
+        margin-bottom: 30px;
+    }
+    .style-two .single-menu .single-menu-details {
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+        padding-left: 0;
+    }
+    .style-two .food-menu-img {
+        float: left;
+        margin-right: 15px;
+        position: inherit;
+    }
+    .style-two .food-menu-details h3 span {
+        float: none;
+        margin-top: 5px;
+        display: block;
+    }
+    .style-two .food-menu-details p span {
+        width: inherit;
+    }
+    /*--------------------------
+        HOME THREE
+    ---------------------------*/
+    .table-booking-form {
+        margin-top: -130px;
+        margin-bottom: 40px;
+    }
+    .table-booking-form input,
+    .table-booking-form select {
+        margin-bottom: 20px;
+    }
+    /*-----------------------------
+        ABOUT PAGE
+    ------------------------------*/
+    .top-area.single-page {
+        height: 350px;
+    }
+    .barner-text h1 {
+        font-size: 40px;
+    }
+    .testmonial-area {
+        font-size: 20px;
+    }
+    .single-counter {
+        margin-bottom: 30px;
+    }
+    .counter-area.section-padding {
+        padding-bottom: 20px;
+    }
+    /*-----------------------------
+        EVENTS PAGE
+    ------------------------------*/
+    .events-page .single-event:last-child {
+        border-bottom: 1px solid #c3c3c4;
+        margin-bottom: 40px;
+        padding-bottom: 40px;
+    }
+    ul.event-menu li {
+        margin-bottom: 3px;
+    }
+    ul.event-menu li a {
+        padding: 3px 10px;
+    }
+    .main-reservaton-form {
+        margin-bottom: 50px;
+    }
+    .reservation-call-to-action {
+        margin-bottom: 40px;
+    }
+    /*-----------------------------
+        SINGLE EVENT
+    -------------------------------*/
+    .single-events-page .event-details-img {
+        margin-bottom: 20px;
+    }
+    .tags-and-social-bar {
+        text-align: center;
+        border-bottom: 1px solid #c3c3c4;
+        margin: -40px auto 60px;
+        padding-bottom: 20px;
+    }
+    .single-event-social-bar,
+    .single-post-social-bar {
+        margin-top: 15px;
+        text-align: center;
+    }
+    /*------------------------------
+        BLOG PAGE
+    --------------------------------*/
+    .title-and-meta h3 {
+        font-size: 28px;
+        font-weight: 400;
+    }
+    .title-and-meta h3 {
+        font-size: 22px;
+    }
+    .post-meta a {
+        margin: 0;
+    }
+    .blog-content {
+        text-align: justify;
+    }
+    .single-blog {
+        margin-bottom: 50px;
+        padding-bottom: 30px;
+    }
+    .single-post-pagination .page-pagination {
+        margin-bottom: 40px;
+    }
+    .single-comments:nth-child(2n+1) {
+        margin-left: 0;
+    }
+    .page-pagination.margin-top {
+        margin-top: 40px;
+    }
+    /*----------------------------
+        MENU PAGE
+    -----------------------------*/
+    .style-three .promotions-img {
+        height: auto;
+        max-height: 450px;
+        width: 100%;
+    }
+    .style-three .promotions-details {
+        height: auto;
+        margin: 0;
+        padding: 25px;
+        position: inherit;
+        width: 100%;
+    }
+    .style-three .promotions-details h3 {
+        font-size: 20px;
+    }
+    .reservation-page .barner-text h1 {
+        font-size: 39px;
+        letter-spacing: 0;
+    }
+    .error-main-hidding > h1 {
+        font-size: 60px;
+    }
+}
+
+
+/*----------------------------------
+    WIDE MOBILE LAYOUT: 480px
+-----------------------------------*/
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .section-padding {
+        padding: 50px 0;
+    }
+    .area-title h2 {
+        font-size: 40px;
+    }
+    .pogoSlider--dirCenterHorizontal .pogoSlider-dir-btn {
+        display: none;
+    }
+    ul#nav {
+        width: 100%;
+        max-height: 200px;
+        overflow: scroll;
+        overflow-x: hidden;
+    }
+    /*------------------*/
+    .area-title h2 {
+        font-size: 60px;
+    }
+    /*----------------------
+        HOME TWO
+    ------------------------*/
+    .style-two .single-menu .single-menu-details {
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+        padding-left: 0;
+    }
+    .style-two .food-menu-img {
+        float: left;
+        margin-right: 15px;
+        position: inherit;
+    }
+    .style-two .food-menu-details h3 span {
+        float: right;
+        margin-top: 0;
+        display: inherit;
+    }
+    .style-two .food-menu-details p span {
+        width: inherit;
+    }
+    .area-title h3 {
+        font-size: 30px;
+        letter-spacing: 1px;
+    }
+    /*--------------------------
+        ABOUT PAGE
+    ----------------------------*/
+    .barner-text h1 {
+        font-size: 50px;
+    }
+    /*------------------------*/
+}

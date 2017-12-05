@@ -1,0 +1,267 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="online tutorial website">
+        <meta name="author" content="Julipels">
+
+        <link rel="shortcut icon" href="{% static 'img/single-logo.png' %}">
+
+        <title>{% block title %}{{ request.user.username }}{% endblock %} | Jembe</title>
+        {% block stylesheet %}
+        <!-- Google-Fonts -->
+        <link href='../../../fonts.googleapis.com/css9c92.css?family=Source+Sans+Pro:100,300,400,600,700,900,400italic' rel='stylesheet'>
+        <!-- Bootstrap core CSS -->
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/bootstrap-reset.css' %}" rel="stylesheet">
+
+        <!--Animation css-->
+        <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+
+        <!--Icon-fonts css-->
+        <link href="{% static 'assets/font-awesome/css/font-awesome.css' %}" rel="stylesheet" />
+        <link href="{% static 'assets/ionicon/css/ionicons.min.css' %}" rel="stylesheet" />
+
+        <!--Morris Chart CSS -->
+        <link rel="stylesheet" href="{% static 'assets/morris/morris.css' %}">
+        <!-- DataTables -->
+        <link href="{% static 'assets/datatables/jquery.dataTables.min.css' %}" rel="stylesheet" type="text/css" />
+        <!-- sweet alerts -->
+        <link href="{% static 'assets/sweet-alert/sweet-alert.min.css' %}" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+        <link href="{% static 'css/helper.css' %}" rel="stylesheet">
+        <link href="{% static 'css/style-responsive.css' %}" rel="stylesheet" />
+         <!--bootstrap-wysihtml5-->
+        <link rel="stylesheet" type="text/css" href="{% static 'assets/bootstrap-wysihtml5/bootstrap-wysihtml5.css' %}" />
+        <link href="{% static 'assets/summernote/summernote.css' %}" rel="stylesheet" />
+         <!--form validation init-->
+        <script src="{% static 'assets/summernote/summernote.min.js' %}"></script>
+
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+<!--[if lt IE 9]>
+  <script src="{% static 'js/html5shiv.js' %}"></script>
+  <script src="{% static 'js/respond.min.js' %}"></script>
+<![endif]-->
+{% endblock %}
+{% block extra_head %}{% endblock %}
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-62751496-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+    </head>
+
+
+    <body>
+
+        <!-- Aside Start-->
+        <aside class="left-panel">
+
+            <!-- brand -->
+            <div class="logo">
+                <a href="{% url 'dashboard' %}" class="logo-expanded">
+                    <img src="{% static 'img/single-logo.png' %}" alt="logo">
+                    <span class="nav-label">Jembe</span>
+                </a>
+            </div>
+            <!-- / brand -->
+        
+            <!-- Navbar Start -->
+            <nav class="navigation">
+                <ul class="list-unstyled">
+                    <li {% if request.path == '/dashboard/' %}class="active" {% endif %}><a href="{% url 'dashboard' %}"><i class="ion-home"></i> <span class="nav-label">Dashboard</span></a>
+                    </li>
+                   
+                    <li {% if request.path == '/add-reservation/' %}class="active"{% endif %}><a href="{% url 'add' %}"><i class="ion-plus-round"></i> <span class="nav-label">Add Reservations</span></a>
+                       
+                    </li>
+
+                    <li {% if request.path == '/view-reservations/' %}class="active" {% endif %}><a href="{% url 'view_reservations' %}"><i class="ion-folder"></i> <span class="nav-label">View Reservations</span></a>
+                        
+                    </li>
+
+                    <li {% if request.path == '/profile/' %}class="active"{% endif %}><a href="{% url 'profile' %}"><i class="ion-person"></i> <span class="nav-label">Profile</span></a></li>
+                     
+                
+                 <li class=""><a href="{% url 'logout' %}"><i class="ion-log-out "></i> <span class="nav-label">Logout</span></a>
+                        
+                    </li>
+            </nav>
+                
+        </aside>
+        <!-- Aside Ends-->
+
+
+        <!--Main Content Start -->
+        <section class="content">
+            
+            <!-- Header -->
+            <header class="top-head container-fluid">
+                <button type="button" class="navbar-toggle pull-left">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <!-- Left navbar -->
+                <nav class=" navbar-default hidden-xs" role="navigation">
+                    <ul class="nav navbar-nav">
+                       
+                </nav>
+                
+                <!-- Right navbar -->
+                <ul class="list-inline navbar-right top-menu top-right-menu">  
+                    <!-- mesages -->  
+                   
+
+                    <!-- user login dropdown start-->
+                    <li class="dropdown text-center">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        {% if request.user.picture %}
+                            <img alt="" src="{{ request.user.picture.url }}" class="img-circle profile-img thumb-sm">
+                         {% else %}
+                             <img alt="" src="{% static 'img/avatar-2.jpg' %}" class="img-circle profile-img thumb-sm">
+                         
+                        {% endif %}
+
+
+
+                            <span class="username">{{ request.user.first_name }} {{ request.user.last_name }} </span> <span class="caret"></span>
+                        
+                       
+                        </a>
+                        <ul class="dropdown-menu extended pro-menu fadeInUp animated" tabindex="5003" style="overflow: hidden; outline: none;">
+                            <li><a href="{% url 'profile' %}"><i class="fa fa-cog"></i>Profile</a></li>
+                           
+                            <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+                    <!-- user login dropdown end -->       
+                </ul>
+                <!-- End right navbar -->
+
+            </header>
+            <!-- Header Ends -->
+    {{ request.user.image.url }}
+
+            <!-- Page Content Start -->
+            <!-- ================== -->
+{% block content %}
+{% endblock %}
+            
+
+            <!-- Footer Start -->
+            <center><footer class="text-info">
+                2017 © all rights reserved.
+            </footer></center>
+            <!-- Footer Ends -->
+
+
+
+        </section>
+        <!-- Main Content Ends -->
+        
+    {% block scripts %}
+
+        <!-- js placed at the end of the document so the pages load faster -->
+        <script src="{% static 'js/jquery.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/modernizr.min.js' %}"></script>
+        <script src="{% static 'js/pace.min.js' %}"></script>
+        <script src="{% static 'js/wow.min.js' %}"></script>
+        <script src="{% static 'js/jquery.scrollTo.min.js' %}"></script>
+        <script src="{% static 'js/jquery.nicescroll.js' %}" type="text/javascript"></script>
+        <script src="{% static 'assets/chat/moment-2.2.1.js' %}"></script>
+
+        <!-- Counter-up -->
+        <script src="{% static 'js/waypoints.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/jquery.counterup.min.js' %}" type="text/javascript"></script>
+
+        <!-- EASY PIE CHART JS -->
+        <script src="{% static 'assets/easypie-chart/easypiechart.min.js' %}"></script>
+        <script src="{% static 'assets/easypie-chart/jquery.easypiechart.min.js' %}"></script>
+        <script src="{% static 'assets/easypie-chart/example.js' %}"></script>
+
+
+        <!--C3 Chart-->
+        <script src="{% static 'assets/c3-chart/d3.v3.min.js' %}"></script>
+        <script src="{% static 'assets/c3-chart/c3.js' %}"></script>
+
+        <!--Morris Chart-->
+        <script src="{% static 'assets/morris/morris.min.js' %}"></script>
+        <script src="{% static 'assets/morris/raphael.min.js' %}"></script>
+
+        <!-- sparkline --> 
+        <script src="{% static 'assets/sparkline-chart/jquery.sparkline.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'assets/sparkline-chart/chart-sparkline.js' %}" type="text/javascript"></script> 
+
+        <!-- sweet alerts -->
+        <script src="{% static 'assets/sweet-alert/sweet-alert.min.js' %}"></script>
+        <script src="{% static 'assets/sweet-alert/sweet-alert.init.js' %}"></script>
+
+        <script src="{% static 'js/jquery.app.js' %}"></script>
+        <!-- Chat -->
+        <script src="{% static 'js/jquery.chat.js' %}"></script>
+        <!-- Dashboard -->
+        <script src="{% static 'js/jquery.dashboard.js' %}"></script>
+
+        <!-- Todo -->
+        <script src="{% static 'js/jquery.todo.js' %}"></script>
+         <script type="text/javascript" src="{% static 'assets/bootstrap-wysihtml5/wysihtml5-0.3.0.js' %}"></script>
+        <script type="text/javascript" src="{% static 'assets/bootstrap-wysihtml5/bootstrap-wysihtml5.js' %}"></script>
+
+        <!-- Custom styles for this template -->
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+        <link href="{% static 'css/helper.css' %}" rel="stylesheet">
+        <link href="{% static 'css/style-responsive.css' %}" rel="stylesheet" />
+        <script src="{% static 'js/pace.min.js' %}"></script>
+        <script src="{% static 'js/wow.min.js' %}"></script>
+        <script src="{% static 'js/jquery.nicescroll.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/jquery.js' %}"></script>
+
+
+        <script type="text/javascript">
+        /* ==============================================
+             Counter Up
+             =============================================== */
+            jQuery(document).ready(function($) {
+                $('.counter').counterUp({
+                    delay: 100,
+                    time: 1200
+                });
+            });
+        </script>
+
+        <script>
+
+            jQuery(document).ready(function(){
+                $('.wysihtml5').wysihtml5();
+
+                $('.summernote').summernote({
+                    height: 200,                 // set editor height
+
+                    minHeight: null,             // set minimum height of editor
+                    maxHeight: null,             // set maximum height of editor
+
+                    focus: true                 // set focus to editable area after initializing summernote
+                });
+
+            });
+        </script>
+    {% endblock %}
+
+    </body>
+
+</html>

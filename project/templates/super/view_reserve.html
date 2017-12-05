@@ -1,0 +1,237 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A fully featured blog for mostar by julie">
+        <meta name="author" content="Julipels">
+
+        <link rel="shortcut icon" href="{% static 'img/single-logo.png' %}">
+
+        <title>{% block title %} Reservations {% endblock %} | Jembe</title>
+        {% block stylesheet %}
+
+        <!-- Google-Fonts -->
+        <link href='../../../fonts.googleapis.com/css9c92.css?family=Source+Sans+Pro:100,300,400,600,700,900,400italic' rel='stylesheet'>
+
+
+        <!-- Google-Fonts -->
+        <link href='../../../fonts.googleapis.com/css9c92.css?family=Source+Sans+Pro:100,300,400,600,700,900,400italic' rel='stylesheet'>
+        <!-- Bootstrap core CSS -->
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/bootstrap-reset.css' %}" rel="stylesheet">
+
+        <!--Animation css-->
+        <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+
+        <!--Icon-fonts css-->
+        <link href="{% static 'assets/font-awesome/css/font-awesome.css' %}" rel="stylesheet" />
+        <link href="{% static 'assets/ionicon/css/ionicons.min.css' %}" rel="stylesheet" />
+        
+        <!-- DataTables -->
+        <link href="{% static 'assets/datatables/jquery.dataTables.min.css' %}" rel="stylesheet" type="text/css" />
+
+        <!-- Custom styles for this template -->
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+        <link href="{% static 'css/helper.css' %}" rel="stylesheet">
+        <link href="{% static 'css/style-responsive.css' %}" rel="stylesheet" />
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+<!--[if lt IE 9]>
+  <script src="{% static 'js/html5shiv.js' %}"></script>
+  <script src="{% static 'js/respond.min.js' %}"></script>
+<![endif]-->
+{% endblock %}
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-62751496-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+    </head>
+
+
+    <body>
+
+      <!-- Aside Start-->
+        <aside class="left-panel">
+
+            <!-- brand -->
+            <div class="logo">
+                <a href="{% url 'dashboard' %}" class="logo-expanded">
+                    <img src="{% static 'img/single-logo.png' %}" alt="logo">
+                    <span class="nav-label">Jembe</span>
+                </a>
+            </   div>
+            <!-- / brand -->
+        
+            <!-- Navbar Start -->
+
+<!-- Navbar Start -->
+            <nav class="navigation">
+                <ul class="list-unstyled">
+                    <li {% if request.path == '/dashboard/' %}class="active" {% endif %}><a href="{% url 'dashboard' %}"><i class="ion-home"></i> <span class="nav-label">Dashboard</span></a>
+                    </li>
+                   
+                    <li {% if request.path == '/add-reservation/' %}class="active"{% endif %}><a href="{% url 'add' %}"><i class="ion-plus-round"></i> <span class="nav-label">Add Reservations</span></a>
+                       
+                    </li>
+
+                    <li {% if request.path == '/view-reservations/' %}class="active" {% endif %}><a href="{% url 'view_reservations' %}"><i class="ion-folder"></i> <span class="nav-label">View Reservations</span></a>
+                        
+                    </li>
+
+                    <li {% if request.path == '/profile/' %}class="active"{% endif %}><a href="{% url 'profile' %}"><i class="ion-person"></i> <span class="nav-label">Profile</span></a></li>
+                     
+                
+                 <li class=""><a href="{% url 'logout' %}"><i class="ion-log-out "></i> <span class="nav-label">Logout</span></a>
+                        
+                    </li>
+            </nav>
+                
+        </aside>
+        <!-- Aside Ends-->
+
+
+        <!--Main Content Start -->
+        <!--Main Content Start -->
+        <section class="content">
+            
+            <!-- Header -->
+            <header class="top-head container-fluid">
+                <button type="button" class="navbar-toggle pull-left">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <!-- Left navbar -->
+                <nav class=" navbar-default hidden-xs" role="navigation">
+                    <ul class="nav navbar-nav">
+                       
+                    </ul>
+                </nav>
+                
+                <!-- Right navbar -->
+                <ul class="list-inline navbar-right top-menu top-right-menu">  
+                    <!-- mesages -->  
+                   
+
+                    <!-- user login dropdown start-->
+                    <li class="dropdown text-center">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        {% if request.user.picture %}
+                            <img alt="" src="{{ request.user.picture.url }}" class="img-circle profile-img thumb-sm">
+                            {% else %}
+<img alt="" src="" class="img-circle profile-img thumb-sm">
+{% endif %}
+                            <span class="username">{{ request.user.first_name }} {{ request.user.last_name }} </span> <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu extended pro-menu fadeInUp animated" tabindex="5003" style="overflow: hidden; outline: none;">
+                           
+                            <li><a href="{% url 'profile' %}"><i class="fa fa-cog"></i> Profile</a></li>
+                            <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+                    <!-- user login dropdown end -->       
+                </ul>
+                <!-- End right navbar -->
+
+            </header>
+            <!-- Header Ends -->
+
+
+            <!-- Page Content Start -->
+{% block content %}
+<div class="wraper container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><strong>All Reservations</strong><br> <br/><a href="{% url 'add' %}" class="btn btn-info btn-right btn-lg"> <strong>Add Reservation</strong></a> </h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <table id="datatable" class="table table-striped table-bordered table-responsive">
+                                            <thead>
+                                                <tr>
+                                                    <th>Owner</th>
+                                                    <th>date reserved</th>
+                                                    <th>date booked</th>
+                                                    <th>people</th>
+                                                    <th>status</th>
+
+                                                </tr>
+                                            </thead>
+
+
+                                            <tbody>
+                                             {% for obj in reservations %}
+                                                <tr>
+                                                
+                                                    
+                                                    <td><a href="{% url 'update_reservation' pk=obj.pk%}">{{ obj.first_name }} {{ obj.last_name }}</a></td>
+                                                    <td>{{ obj.date_reserved }}</td>
+                                                    <td>{{ obj.date_booked }}</td>
+                                                    <td>{{ obj.people }}</td>
+                                                    <td>{{ obj.status }}</td>
+
+                                                
+                                                </tr>
+                                                {% endfor %}
+                                                
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!-- End Row -->
+
+
+
+            </div>
+
+            <!-- Page Content Ends -->
+            <!-- ================== -->
+{% endblock %}
+
+</section>
+        <!-- Main Content Ends -->
+
+
+
+
+        <!-- js placed at the end of the document so the pages load faster -->
+        <script src="{% static 'js/jquery.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/pace.min.js' %}"></script>
+        <script src="{% static 'js/wow.min.js' %}"></script>
+        <script src="{% static 'js/jquery.nicescroll.js' %}" type="text/javascript"></script>
+
+
+        <script src="{% static 'js/jquery.app.js' %}"></script>
+
+        <script src="{% static 'assets/datatables/jquery.dataTables.min.js' %}"></script>
+        <script src="{% static 'assets/datatables/dataTables.bootstrap.js' %}"></script>
+
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#datatable').dataTable();
+            } );
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,133 @@
+{% extends "super/base.html" %}
+{% load staticfiles %}
+{% load i18n widget_tweaks %}
+{% block content %}
+<!-- Page Content Start -->
+            <!-- ================== -->
+            <div class="wraper container-fluid">
+                {% include "super/messages.html" %}
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="bg-picture" style="background-image:url({% static 'img/food.jpg' %})">
+                          <span class="bg-picture-overlay"></span><!-- overlay -->
+                          <!-- meta -->
+                          <div class="box-layout meta bottom">
+                            <div class="col-sm-6 clearfix">
+                            {% if request.user.picture %}
+                              <span class="img-wrapper pull-left m-r-15"><img src="{{ request.user.picture.url }}" alt="" style="width:64px" class="br-radius"></span>
+                              {% else %}
+                              <span class="img-wrapper pull-left m-r-15"><img src="{% static 'img/avatar-2.jpg' %}" alt="" style="width:64px" class="br-radius"></span>
+                              {% endif %}
+                              <div class="media-body">
+                                <h3 class="text-white mb-2 m-t-10 ellipsis">{{ request.user.first_name}} {{ request.user.last_name }}</h3>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+
+                         
+                            </div>
+                          </div>
+                          <!--/ meta -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row m-t-30">
+                    <div class="col-sm-12">
+                        <div class="panel panel-default p-0">
+                            <div class="panel-body p-0"> 
+                                <ul class="nav nav-tabs profile-tabs">
+                                    <li class="active"><a data-toggle="tab" href="#aboutme">About Me</a></li>
+                                   
+                                    <li class=""><a data-toggle="tab" href="#edit-profile">Settings</a></li>
+                                </ul>
+
+                                <div class="tab-content m-0"> 
+
+                                    <div id="aboutme" class="tab-pane active">
+                                    <div class="profile-desk">
+                                        <h1>{{ request.user.first_name}} {{ request.user.last_name }}</h1>
+                                        <span class="designation">I am a Staff @ Jembe</span>
+                                        <p>
+                                            {{ request.user.biography }}
+                                        </p>
+                                        <a class="btn btn-primary m-t-20" href="#"> <i class="fa fa-check"></i> Staff</a>
+
+                                        <table class="table table-condensed">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="3"><h3>Contact Information</h3></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                               
+                                                <tr>
+                                                    <td><b>Email</b></td>
+                                                    <td>
+                                                    <a href="#" class="ng-binding">
+                                                        {{ request.user.email }}
+                                                    </a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>Phone</b></td>
+                                                    <td class="ng-binding">{{ request.user.phone_number }}</td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td><b>Website</b></td>
+                                                    <td class="ng-binding"><a href="{{ request.user.website }}" target="_blank">{{ request.user.website }}</a></td>
+                                                </tr>
+                                               
+                                            </tbody>
+                                        </table>
+                                    </div> <!-- end profile-desk -->
+                                </div> <!-- about-me -->
+
+                               <!-- settings -->
+                                <div id="edit-profile" class="tab-pane">
+                                    <div class="user-profile-content">
+                                        <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data"> 
+                                {% csrf_token %}
+                                {% for field in user_form %}                                    
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">{{ field.label }}</label>
+                                        <div class="col-md-10">
+                                            {{ field|attr:'class:form-control'}}
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                    {# profile logic #}
+                                    {% for fields in form %}
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label" for="example-email">{{ fields.label }}</label>
+                                        <div class="col-md-10">
+                                            {{ fields|attr:'class:form-control'}}
+                                        </div>
+                                    </div>
+                                    {% endfor %} 
+                                    <div class="form-group">
+                                    <div class="col-md-10">
+                                        <center><button class="btn btn-primary" type="submit">Save</button></center>
+                                        </div>
+                                    </div>
+                                            
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+             
+                        </div> 
+                    </div>
+                </div>
+            </div>
+
+            
+
+            
+
+
+        </div>
+
+        <!-- Page Content Ends -->
+        <!-- ================== -->
+{% endblock %}

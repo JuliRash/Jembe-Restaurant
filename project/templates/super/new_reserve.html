@@ -1,0 +1,229 @@
+{% extends "super/base.html" %}
+{% load i18n widget_tweaks %}
+{% load staticfiles %}
+{% block title %} new-reservation {% endblock %}
+{% block extra_head %}
+ <!--bootstrap-wysihtml5-->
+        <link rel="stylesheet" type="text/css" href="{% static 'assets/bootstrap-wysihtml5/bootstrap-wysihtml5.css' %}" />
+         <link href="{% static 'assets/timepicker/bootstrap-timepicker.min.css' %}" rel="stylesheet" />
+        <link href="{% static 'assets/timepicker/bootstrap-datepicker.min.css' %}" rel="stylesheet" />
+
+        <link href="{% static 'assets/summernote/summernote.css' %}" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="{% static 'assets/jquery-multi-select/multi-select.css' %}" />
+{% endblock %}
+{% block content %}
+            <!-- Page Content Start -->
+            <!-- ================== -->
+
+            <div class="wraper container-fluid">
+
+                <div class="row">
+
+                    <div class="col-sm-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><h3 class="panel-title"> Add a new Reservation</h3></div>
+
+                {# error logic #}
+                {% for field, errors in form.errors.items %}
+                <div class="alert alert-danger alert-dismissible">
+                {% for error in errors %}
+                <center> <strong>{{ error|escape }}</strong></center>
+                {% endfor %}
+                </div>
+                {% endfor %}
+                            <div class="panel-body">
+                                <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">{{ form.first_name.label }}:</label>
+                                        <div class="col-md-10">
+                                            {{ form.first_name|attr:"class:form-control" }}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">{{ form.last_name.label }}:</label>
+                                        <div class="col-md-10">
+                                            {{ form.last_name|attr:"class:form-control" }}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">{{ form.email.label }}</label>
+                                        <div class="col-md-10">
+                                            {{ form.email | attr:"class:form-control"  }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">{{ form.phone.label }}</label>
+                                        <div class="col-md-10">
+                                            {{ form.phone | attr:"class:form-control"   }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">{{ form.people.label }}</label>
+                                        <div class="col-md-10">
+                                            {{ form.people| attr:"class:form-control" }}
+                                        </div>
+                                    </div>
+                                    <div class=" form-group ">
+                                    <div class="input-group col-lg-12 ">
+                                        <label class="col-md-2 control-label">{{ form.time.label}}</label>
+
+                                        <div class="col-md-10">
+                                    <div class="bootstrap-timepicker">
+                                      {{ form.time| attr:"class:form-control" }}                                    </div>
+                                    
+                                </div><!-- input-group -->                                        </div>
+                                </div>
+
+
+                                     
+                            
+                                      <div class="form-group">
+                                        <label class="col-md-2 control-label">{{ form.status.label}}</label>
+                                        <div class="col-md-10">
+                                            {{ form.status| attr:"class:form-control" }}
+
+                                        </div>
+                                    </div>
+
+                                   <div class=" form-group ">
+                                    <div class="input-group col-lg-12 ">
+                                        <label class="col-md-2 control-label">{{ form.date_reserved.label}}</label>
+
+                                        <div class="col-md-10">
+                                    <div class="bootstrap-timepicker">
+                                      {{ form.date_reserved| attr:"class:form-control" }}                                    </div>
+                                    
+                                </div><!-- input-group -->                                        </div>
+                                </div>
+                                    <div class="form-group">
+                                    <div class="col-md-10">
+                                        <center><button class="btn btn-primary" type="submit">Reserve Table</button></center>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!-- End row -->
+
+
+            </div>
+            <!-- Page Content Ends -->
+            <!-- ================== -->
+{% endblock %}
+
+{% block scripts %}
+ <script src="{% static 'js/jquery.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/pace.min.js' %}"></script>
+        <script src="{% static 'js/wow.min.js' %}"></script>
+        <script src="{% static 'js/jquery.nicescroll.js' %}" type="text/javascript"></script>
+<script src="{% static 'assets/tagsinput/jquery.tagsinput.min.js' %}"></script>
+        <script src="{% static 'assets/toggles/toggles.min.js' %}"></script>
+        <script src="{% static 'assets/timepicker/bootstrap-timepicker.min.js' %}"></script>
+        <script src="{% static 'assets/timepicker/bootstrap-datepicker.js' %}"></script>
+        <script type="text/javascript" src="{% static 'assets/colorpicker/bootstrap-colorpicker.js' %}"></script>
+        <script type="text/javascript" src="{% static 'assets/jquery-multi-select/jquery.multi-select.js' %}"></script>
+        <script type="text/javascript" src="{% static 'assets/jquery-multi-select/jquery.quicksearch.js' %}"></script>
+        <script src="{% static 'assets/bootstrap-inputmask/bootstrap-inputmask.min.js' %}" type="text/javascript"></script>
+        <script type="text/javascript" src="{% static 'assets/spinner/spinner.min.js' %}"></script>
+        <script src="{% static 'assets/select2/select2.min.js' %}" type="text/javascript"></script>
+
+
+        <script src="{% static 'js/jquery.app.js' %}"></script>
+
+
+        <script>
+            jQuery(document).ready(function() {
+                    
+                // Tags Input
+                jQuery('#tags').tagsInput({width:'auto'});
+
+                // Form Toggles
+                jQuery('.toggle').toggles({on: true});
+
+                // Time Picker
+                jQuery('#timepicker').timepicker({defaultTIme: false});
+                jQuery('#timepicker2').timepicker({showMeridian: false});
+                jQuery('#timepicker3').timepicker({minuteStep: 15});
+
+                // Date Picker
+                jQuery('#datepicker').datepicker();
+                jQuery('#datepicker-inline').datepicker();
+                jQuery('#datepicker-multiple').datepicker({
+                    numberOfMonths: 3,
+                    showButtonPanel: true
+                });
+                //colorpicker start
+
+                $('.colorpicker-default').colorpicker({
+                    format: 'hex'
+                });
+                $('.colorpicker-rgba').colorpicker();
+
+
+                //multiselect start
+
+                $('#my_multi_select1').multiSelect();
+                $('#my_multi_select2').multiSelect({
+                    selectableOptgroup: true
+                });
+
+                $('#my_multi_select3').multiSelect({
+                    selectableHeader: "<input type='text' class='form-control search-input' autocomplete='off' placeholder='search...'>",
+                    selectionHeader: "<input type='text' class='form-control search-input' autocomplete='off' placeholder='search...'>",
+                    afterInit: function (ms) {
+                        var that = this,
+                            $selectableSearch = that.$selectableUl.prev(),
+                            $selectionSearch = that.$selectionUl.prev(),
+                            selectableSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selectable:not(.ms-selected)',
+                            selectionSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selection.ms-selected';
+
+                        that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
+                            .on('keydown', function (e) {
+                                if (e.which === 40) {
+                                    that.$selectableUl.focus();
+                                    return false;
+                                }
+                            });
+
+                        that.qs2 = $selectionSearch.quicksearch(selectionSearchString)
+                            .on('keydown', function (e) {
+                                if (e.which == 40) {
+                                    that.$selectionUl.focus();
+                                    return false;
+                                }
+                            });
+                    },
+                    afterSelect: function () {
+                        this.qs1.cache();
+                        this.qs2.cache();
+                    },
+                    afterDeselect: function () {
+                        this.qs1.cache();
+                        this.qs2.cache();
+                    }
+                });
+
+                //spinner start
+                $('#spinner1').spinner();
+                $('#spinner2').spinner({disabled: true});
+                $('#spinner3').spinner({value:0, min: 0, max: 10});
+                $('#spinner4').spinner({value:0, step: 5, min: 0, max: 200});
+                //spinner end
+
+                // Select2
+                jQuery(".select2").select2({
+                    width: '100%'
+                });
+            });
+            $('#id').datepicker({
+                minDate: new Date()
+
+            });
+        </script>
+
+{% endblock %}

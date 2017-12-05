@@ -1,0 +1,11 @@
+Answer to no 6
+Ordering of tuples in a Relation -The tuples are not considered to be ordered, even though they appear to be in the tabular form.
+Ordering of attributes in a relation schema R and of values within each tuples - We consider the attributes in R(A1, A2, .., An) and the values in t=<v1, v2, .., vn> to be ordered.
+Values in a tuple - All values are considered to be indivisible(atomic). A special null value is used to represent values that are unknown or inapplicable to certain tuples.
+
+
+Answer to Distributed processing 
+Distributed processing is a phrase used to refer to a variety of computer systems that use more than one computer (or processor) to run an application. This includes parallel processing in which a single computer uses more than one CPU to execute programs.
+
+answer to distributed database
+A distributed database is a database in which portions of the database are stored in multiple physical locations and processing is distributed among multiple database nodes.
